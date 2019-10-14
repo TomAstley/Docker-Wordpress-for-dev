@@ -53,5 +53,5 @@ Setup will do the following:
 * yarn build:production — Compile assets for production
 
 # Links
-[Docker](https://www.docker.com/)
-[Sage](https://roots.io/sage/)
+* [Docker](https://www.docker.com/)
+* [Sage](https://roots.io/sage/)
