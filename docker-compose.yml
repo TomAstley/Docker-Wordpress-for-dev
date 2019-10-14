@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  wordpress:
+    image: ${WORDPRESS_IMAGE}
+    container_name: ${PROJECT_NAME}
+    volumes:
+      - ${PWD}/themes:/var/www/html/wp-content/themes
+      - ${PWD}/plugins:/var/www/html/wp-content/plugins
+      - ${PWD}/uploads:/var/www/html/wp-content/uploads
+    environment:
+      WORDPRESS_DB_HOST: "${PROJECT_NAME}-mysql"
+      WORDPRESS_DB_USER: "${DB_USER}"
+      WORDPRESS_DB_PASSWORD: "${DB_PASSWORD}"
+      WORDPRESS_DB_NAME:  "${DATABASE_NAME}"
+      WORDPRESS_TABLE_PREFIX: "${WORDPRESS_TABLE_PREFIX}"
+      WORDPRESS_DEBUG: "1"
+    env_file: .env-dev 
+    restart: always
+    links: 
+      - "mysql"
+    depends_on: 
+      - "mysql"
+    ports:
+      - 443:443
+    
+  
+  mysql:
+    image: mysql:5.7
+    container_name: "${PROJECT_NAME}-mysql"
+    environment:
+       MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+       MYSQL_DATABASE: "${DATABASE_NAME}"
+       MYSQL_PASSWORD: "${DB_PASSWORD}"
+    restart: always
+    ports:
+      - "4306:3306"

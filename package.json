@@ -1,0 +1,17 @@
+{
+  "name": "docker-wordpress-starter",
+  "version": "1.0.0",
+  "description": "A simple Docker starter for creating Wordpress Builds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "node npm-scripts/setup",
+    "update" : "node npm-scripts/update"
+  },
+  "author": "Tom Astley",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.0.0",
+    "shelljs": "^0.8.3"
+  }
+}
