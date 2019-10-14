@@ -32,9 +32,9 @@ Setup will do the following:
 * Build Wordpress Docker container
 * Build MySql Docker container
 * Downloads the Sage template and install via composer
-* Install template dependancies via Yarn
+* Install template dependencies via Yarn
 * Compiles assets via Yarn
-* Install a SSL Cert
+* Install an SSL Cert
 * Get the latest database from the remote (if not a new build)
 * Update database paths
 * Get uploads from the live site. (if not a new build)
